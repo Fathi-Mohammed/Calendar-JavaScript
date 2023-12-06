@@ -1,0 +1,160 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Almarai", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.calendar_wrapper__ {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  background: transparent;
+
+
+  .calendar_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 35px;
+    background-color: #fff;
+    border-radius: 24px;
+    border: 1px solid rgba(#040740, 0.1);
+    margin-bottom: 20px;
+
+    .calender_next_prev_month_button {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      position: relative;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      &::after {
+        content: "\f054";
+        font-weight: 900;
+        font-size: 12px;
+        color: #000;
+        font: var(--fa-font-solid);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      &#prev {
+        &::after {
+          content: "\f053";
+        }
+      }
+    }
+  }
+
+  .calendar_body {
+    #weeks_wrapper__ {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      list-style: none;
+    }
+
+    li {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      width: calc(100% / 7 - 5px);
+    }
+
+    a {
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      min-height: 100px;
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      color: #040740;
+    }
+
+    .other_months_days {
+      a {
+        color: #9a9a9a !important;
+
+        .icon__ {
+          filter: grayscale(9);
+          opacity: 0.6;
+        }
+
+        .title__ {
+          color: #9a9a9a !important;
+        }
+      }
+    }
+
+    .day_block {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 7px;
+
+      .icon__,
+      .title__ {
+        display: none;
+      }
+
+      .icon__ {
+        max-width: 24px;
+        max-height: 24px;
+        margin: 0 auto;
+      }
+
+      .title__ {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      &.rating_done {
+        .icon__,
+        .title__ {
+          display: block;
+        }
+
+        .title__ {
+          color: #e48403;
+        }
+      }
+
+      &.closed_day {
+        .icon__,
+        .title__ {
+          display: block;
+        }
+
+        .title__ {
+          color: #f40004;
+        }
+      }
+    }
+  }
+}
